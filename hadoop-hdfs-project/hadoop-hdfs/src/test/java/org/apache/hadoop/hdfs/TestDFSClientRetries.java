@@ -319,7 +319,7 @@ public class TestDFSClientRetries {
       NamenodeProtocols preSpyNN = cluster.getNameNodeRpc();
       NamenodeProtocols spyNN = spy(preSpyNN);
       DFSClient client = new DFSClient(null, spyNN, conf, null);
-      int maxBlockAcquires = client.getConf().getMaxBlockAcquireFailures();
+      int maxBlockAcquires = client.getConf().getFetchBlockLocationsRetryer().getMaxBlockAcquireFailures();
       assertTrue(maxBlockAcquires > 0);
 
 
